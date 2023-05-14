@@ -1,0 +1,42 @@
+
+
+# Pagina 
+https://www.r-bloggers.com/2022/09/using-shiny-server-in-docker/
+
+
+# Crea una imagen desde cero cada veaz
+docker build -t r_prod .
+
+# Crea una imagen desde cero cada veaz
+docker build --no-cache -t r_prod .
+
+
+# Abrir un volumne de mi compu con el docker
+docker run -d --rm -p 8787:8787 -p 3838:3838 -e DISABLE_AUTH=true --name r_prod r_prod
+
+
+# Abrir un volumne de mi compu con el docker
+# docker run -d --rm -p 8787:8787 -p 3838:3838 -e DISABLE_AUTH=true -v /home/motoko/MyDockerBoat/RMedicProject/RMedic:/home/rstudio/RMedic --name r_prod r_prod
+
+
+
+docker run -d --rm -p 8787:8787 -p 3838:3838 -e DISABLE_AUTH=true --name r_mix r_mix
+
+
+# docker run -d --rm -p 8787:8787 -p 3838:3838 -e DISABLE_AUTH=true -v D:\DockerExperiment\RMedicProject\RMedic:/home/rstudio/RMedic --name r_mix r_mix
+
+
+# Crea una imagen
+# docker build -t r_mix .
+
+
+
+# Inicio comun
+# docker run --rm -p 3838:3838 r_mix
+
+# Inicio en Detach
+#docker run -d --rm -ti -p 3838:3838 -p 8787:8787 --name r_mix r_mix
+
+
+# Inicio en Detach, y arranca de nuevo despues del reseteo
+docker run -d -p 3838:3838 --restart unless-stopped --name r_mix r_mix
